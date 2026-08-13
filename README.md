@@ -11,4 +11,4 @@ The entire site is one file: `index.html`. To make a change:
 3. Make your change and commit — the live site updates automatically within a minute or two
 
 ## Contact
-[Add program contact email]
+brandon.leslie@horizonair.com
