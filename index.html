@@ -239,19 +239,31 @@
     gap: 16px;
   }
 
-  .gallery-placeholder {
+  .gallery-item {
+    position: relative;
     aspect-ratio: 4/3;
-    background: repeating-linear-gradient(135deg, #e6e6e2, #e6e6e2 10px, #ecece8 10px, #ecece8 20px);
-    border: 1px dashed #b8b8b0;
     border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #8a8a80;
+    overflow: hidden;
+    background: #e6e6e2;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .gallery-item .caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(10,40,97,0.85), transparent);
+    color: white;
     font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
-    font-size: 0.82rem;
-    text-align: center;
-    padding: 12px;
+    font-size: 0.8rem;
+    padding: 22px 12px 10px;
   }
 
   .gallery-note {
@@ -476,14 +488,32 @@
       <p>Photos of the Fallen Soldier Cart, ceremonies, and volunteers across our stations.</p>
     </div>
     <div class="gallery-grid">
-      <div class="gallery-placeholder">Photo placeholder<br>Fallen Soldier Cart</div>
-      <div class="gallery-placeholder">Photo placeholder<br>Honor ceremony</div>
-      <div class="gallery-placeholder">Photo placeholder<br>Volunteer team</div>
-      <div class="gallery-placeholder">Photo placeholder<br>Station event</div>
-      <div class="gallery-placeholder">Photo placeholder<br>Coin / patch</div>
-      <div class="gallery-placeholder">Photo placeholder<br>Family moment</div>
+      <div class="gallery-item">
+        <img src="images/fallen-soldier-cart-transfer.jpg" alt="Fallen Soldier Cart transfer, decorated with flowers and a memorial banner">
+        <div class="caption">Fallen Soldier Cart Transfer</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/fallen-soldier-ceremony.jpg" alt="Employee at a Fallen Soldier Program honor ceremony">
+        <div class="caption">Honor Ceremony</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/fallen-soldier-group-photo.jpg" alt="Volunteers and veterans gathered in front of an Alaska Airlines aircraft">
+        <div class="caption">Volunteers &amp; Veterans</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/fallen-soldier-aircraft-tail.jpg" alt="Alaska Airlines aircraft tail honoring those who serve">
+        <div class="caption">Honoring Those Who Serve</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/fallen-soldier-motorcycle-escort.jpg" alt="Motorcycle escort accompanying the Fallen Soldier Cart">
+        <div class="caption">Motorcycle Escort</div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/fallen-soldier-flag-rider.jpg" alt="Rider carrying American flags during the Fallen Soldier escort">
+        <div class="caption">Flag Escort</div>
+      </div>
     </div>
-    <p class="gallery-note">Placeholder images shown above &mdash; swap in real program photos when ready.</p>
+    <p class="gallery-note">Photos from the SLC Fallen Soldier Cart ceremony, June 2026.</p>
   </div>
 </section>
 
@@ -532,7 +562,7 @@
     <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
   </div>
   <p><strong>Alaska Airlines Fallen Soldier Program</strong> &mdash; All Gave Some, Some Gave All</p>
-  <p>&copy; 2026 Alaska Airlines Fallen Soldier Program. Site content placeholder &mdash; update before publishing.</p>
+  <p>&copy; 2026 Alaska Airlines Fallen Soldier Program.</p>
 </footer>
 
 </body>
