@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fallen Soldier Program | Alaska Airlines</title>
+<style>
+  :root {
+    --navy: #0a2861;
+    --navy-dark: #071b45;
+    --gold: #f5b323;
+    --gold-dark: #c98d0f;
+    --red: #d13b3b;
+    --off-white: #f7f7f5;
+    --gray: #5a5f6a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: #222;
+    background: var(--off-white);
+    line-height: 1.65;
+  }
+
+  h1, h2, h3, .brand {
+    font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+  }
+
+  a { color: inherit; }
+
+  img { max-width: 100%; display: block; }
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header {
+    background: var(--navy);
+    color: white;
+    padding: 18px 0;
+    border-bottom: 4px solid var(--gold);
+  }
+
+  header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .brand {
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
+  }
+
+  .brand span {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: white;
+    margin-left: 22px;
+    font-size: 0.92rem;
+    font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 3px;
+  }
+
+  nav a:hover { border-bottom-color: var(--gold); }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-dark) 65%);
+    color: white;
+    text-align: center;
+    padding: 84px 24px 96px;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, var(--gold) 1px, transparent 1.5px);
+    background-size: 46px 46px;
+    opacity: 0.08;
+  }
+
+  .hero-inner { position: relative; max-width: 720px; margin: 0 auto; }
+
+  .ribbon {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    padding: 6px 18px;
+    border-radius: 3px;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+
+  .hero p.tagline {
+    font-size: 1.15rem;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+
+  .hero p.sub {
+    font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+    font-size: 1rem;
+    color: #d7deee;
+    max-width: 560px;
+    margin: 18px auto 0;
+  }
+
+  .stars-row {
+    margin-top: 34px;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .star {
+    color: var(--gold);
+    font-size: 1.4rem;
+  }
+
+  /* Sections */
+  section { padding: 68px 0; }
+
+  section h2 {
+    font-size: 1.9rem;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .eyebrow {
+    font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    color: var(--gold-dark);
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .section-head { max-width: 640px; margin-bottom: 40px; }
+
+  .section-head p { color: var(--gray); font-size: 1.02rem; }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .about-grid p { margin-bottom: 16px; color: #333; }
+
+  .fact-card {
+    background: white;
+    border: 1px solid #e4e4e0;
+    border-left: 4px solid var(--gold);
+    padding: 22px 24px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+
+  .fact-card .num {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--navy);
+    font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+    display: block;
+  }
+
+  .fact-card .label {
+    font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+    font-size: 0.88rem;
+    color: var(--gray);
+  }
+
+  /* Branches */
+  .branches {
+    background: var(--navy);
+    color: white;
+  }
+
+  .branches .section-head p { color: #c7cfe2; }
+  .branches .eyebrow { color: var(--gold); }
+  .branches h2 { color: white; }
+
+  .branch-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+
+  .branch-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(245,179,35,0.25);
+    border-radius: 6px;
+    padding: 28px 16px;
+  }
+
+  .branch-card .star-icon { font-size: 2.1rem; color: var(--gold); margin-bottom: 10px; }
+  .branch-card .name { font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif; font-weight: 700; letter-spacing: 0.5px; }
+
+  /* Gallery */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .gallery-placeholder {
+    aspect-ratio: 4/3;
+    background: repeating-linear-gradient(135deg, #e6e6e2, #e6e6e2 10px, #ecece8 10px, #ecece8 20px);
+    border: 1px dashed #b8b8b0;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8a8a80;
+    font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+    font-size: 0.82rem;
+    text-align: center;
+    padding: 12px;
+  }
+
+  .gallery-note {
+    margin-top: 18px;
+    font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+    font-size: 0.85rem;
+    color: var(--gray);
+    font-style: italic;
+  }
+
+  /* Nonprofit / coming soon */
+  .nonprofit {
+    background: white;
+    border-top: 1px solid #e4e4e0;
+    border-bottom: 1px solid #e4e4e0;
+  }
+
+  .nonprofit-box {
+    background: #fbf6e8;
+    border: 1px solid #edd9a3;
+    border-radius: 8px;
+    padding: 36px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .nonprofit-box .badge {
+    background: var(--gold);
+    color: var(--navy-dark);
+    font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+
+  .nonprofit-box h3 { color: var(--navy); font-size: 1.3rem; margin-bottom: 10px; }
+  .nonprofit-box p { color: #444; max-width: 620px; }
+
+  .btn {
+    display: inline-block;
+    font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 12px 26px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 8px;
+  }
+
+  .btn-disabled {
+    background: #ddd;
+    color: #888;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy-dark);
+  }
+
+  /* Get involved / contact */
+  .contact {
+    background: var(--off-white);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .contact-card {
+    background: white;
+    border: 1px solid #e4e4e0;
+    border-radius: 6px;
+    padding: 28px;
+  }
+
+  .contact-card h3 {
+    color: var(--navy);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  .contact-card p { color: var(--gray); font-size: 0.95rem; margin-bottom: 14px; }
+
+  .contact-card a.email {
+    font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+    font-weight: 700;
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  /* Footer */
+  footer {
+    background: var(--navy-dark);
+    color: #b9c1d6;
+    text-align: center;
+    padding: 32px 24px;
+    font-family: 'Trebuchet MS', 'Segoe UI', Arial, sans-serif;
+    font-size: 0.82rem;
+  }
+
+  footer .stars-row { margin-bottom: 16px; }
+  footer strong { color: white; }
+
+  @media (max-width: 760px) {
+    nav { display: none; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .branch-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="brand">Alaska Airlines <span>FALLEN SOLDIER PROGRAM</span></div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#nonprofit">Our Nonprofit</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <span class="ribbon">All Gave Some &middot; Some Gave All</span>
+    <h1>The Fallen Soldier Program</h1>
+    <p class="tagline">Honoring the fallen with dignity, respect, and duty.</p>
+    <p class="sub">
+      An all-volunteer, employee-led program at Alaska Airlines dedicated to the respectful
+      transport and honor of fallen U.S. service members and their families.
+    </p>
+    <div class="stars-row">
+      <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+      <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Our Story</span>
+      <h2>Duty, Honor, Country</h2>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>
+          The Fallen Soldier Program began in May 2011, started by Alaska Airlines employees
+          after ramp technicians witnessed the remains of a fallen service member handled without
+          the dignity they deserved. In response, an all-volunteer group of employees came together
+          to make sure it never happened again.
+        </p>
+        <p>
+          The result was the Fallen Soldier Cart &mdash; a specially built, flag-draped cart used to
+          transport the remains of deceased military personnel to and from the aircraft, following
+          military protocol every step of the way. Each cart carries the insignia of the six branches
+          of the U.S. Armed Forces: Army, Marine Corps, Navy, Air Force, Space Force, and Coast Guard.
+        </p>
+        <p>
+          What started as one cart has grown into a program with a simple, lasting goal: to give every
+          fallen service member the honor they earned, at every airport Alaska Airlines serves &mdash;
+          and to make the carts available to any airline that needs them.
+        </p>
+      </div>
+      <div>
+        <div class="fact-card">
+          <span class="num">2011</span>
+          <span class="label">Program founded by Alaska Airlines employees</span>
+        </div>
+        <div class="fact-card">
+          <span class="num">20</span>
+          <span class="label">Airports currently home to a Fallen Soldier Cart</span>
+        </div>
+        <div class="fact-card">
+          <span class="num">6</span>
+          <span class="label">Military branches honored on every cart</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="branches">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Who We Honor</span>
+      <h2>The Six Branches</h2>
+      <p>Every Fallen Soldier Cart bears the insignia of all six branches of the U.S. Armed Forces.</p>
+    </div>
+    <div class="branch-grid">
+      <div class="branch-card"><div class="star-icon">&#9733;</div><div class="name">Army</div></div>
+      <div class="branch-card"><div class="star-icon">&#9733;</div><div class="name">Marine Corps</div></div>
+      <div class="branch-card"><div class="star-icon">&#9733;</div><div class="name">Navy</div></div>
+      <div class="branch-card"><div class="star-icon">&#9733;</div><div class="name">Air Force</div></div>
+      <div class="branch-card"><div class="star-icon">&#9733;</div><div class="name">Space Force</div></div>
+      <div class="branch-card"><div class="star-icon">&#9733;</div><div class="name">Coast Guard</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Gallery</span>
+      <h2>The Program In Action</h2>
+      <p>Photos of the Fallen Soldier Cart, ceremonies, and volunteers across our stations.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-placeholder">Photo placeholder<br>Fallen Soldier Cart</div>
+      <div class="gallery-placeholder">Photo placeholder<br>Honor ceremony</div>
+      <div class="gallery-placeholder">Photo placeholder<br>Volunteer team</div>
+      <div class="gallery-placeholder">Photo placeholder<br>Station event</div>
+      <div class="gallery-placeholder">Photo placeholder<br>Coin / patch</div>
+      <div class="gallery-placeholder">Photo placeholder<br>Family moment</div>
+    </div>
+    <p class="gallery-note">Placeholder images shown above &mdash; swap in real program photos when ready.</p>
+  </div>
+</section>
+
+<section id="nonprofit" class="nonprofit">
+  <div class="container">
+    <div class="nonprofit-box">
+      <div>
+        <span class="badge">Coming Soon</span>
+        <h3>We're Becoming a 501(c)(3)</h3>
+        <p>
+          The Fallen Soldier Program is in the process of establishing an official nonprofit
+          organization. Once complete, this section will include our mission, how donations
+          support the program, and a direct link to give. Check back soon, or reach out below
+          to be notified when we launch.
+        </p>
+        <a href="#contact" class="btn btn-primary">Get Notified</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Connect</span>
+      <h2>Get Involved</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Contact the Program</h3>
+        <p>Questions about the Fallen Soldier Program, a request for a cart, or media inquiries &mdash; reach out to the team.</p>
+        <a class="email" href="mailto:REPLACE-WITH-PROGRAM-EMAIL@alaskaair.com">[Add program contact email]</a>
+      </div>
+      <div class="contact-card">
+        <h3>Volunteer or Partner</h3>
+        <p>Alaska Airlines employees and community partners interested in supporting the program can get in touch to learn how to help.</p>
+        <a class="email" href="mailto:REPLACE-WITH-PROGRAM-EMAIL@alaskaair.com">[Add program contact email]</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="stars-row">
+    <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+    <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+  </div>
+  <p><strong>Alaska Airlines Fallen Soldier Program</strong> &mdash; All Gave Some, Some Gave All</p>
+  <p>&copy; 2026 Alaska Airlines Fallen Soldier Program. Site content placeholder &mdash; update before publishing.</p>
+</footer>
+
+</body>
+</html>
